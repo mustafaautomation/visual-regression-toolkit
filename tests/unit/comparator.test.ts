@@ -8,7 +8,11 @@ const TMP = path.join(__dirname, '.tmp-comparator');
 const BASELINES = path.join(TMP, 'baselines');
 const DIFFS = path.join(TMP, 'diffs');
 
-function createPng(width: number, height: number, color: { r: number; g: number; b: number }): Buffer {
+function createPng(
+  width: number,
+  height: number,
+  color: { r: number; g: number; b: number },
+): Buffer {
   const png = new PNG({ width, height });
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {

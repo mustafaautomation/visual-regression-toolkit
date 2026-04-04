@@ -20,7 +20,8 @@ export function printReport(report: VrtReport): void {
   console.log();
 
   for (const result of report.results) {
-    const icon = result.status === 'pass' ? `${GREEN}✓` : result.status === 'new' ? `${YELLOW}●` : `${RED}✗`;
+    const icon =
+      result.status === 'pass' ? `${GREEN}✓` : result.status === 'new' ? `${YELLOW}●` : `${RED}✗`;
     const detail =
       result.status === 'new'
         ? `${YELLOW}new baseline${RESET}`
@@ -28,7 +29,9 @@ export function printReport(report: VrtReport): void {
           ? `${GREEN}match${RESET}`
           : `${RED}${result.mismatchPercentage}% diff (${result.mismatchPixels}px)${RESET}`;
 
-    console.log(`  ${icon}${RESET} ${result.name}  ${DIM}${result.dimensions.width}x${result.dimensions.height}${RESET}  ${detail}`);
+    console.log(
+      `  ${icon}${RESET} ${result.name}  ${DIM}${result.dimensions.width}x${result.dimensions.height}${RESET}  ${detail}`,
+    );
 
     if (result.diffPath) {
       console.log(`    ${DIM}diff: ${result.diffPath}${RESET}`);

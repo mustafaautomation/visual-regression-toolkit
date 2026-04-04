@@ -3,7 +3,11 @@ import path from 'path';
 import { VrtReport } from '../core/types';
 
 function esc(text: string): string {
-  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 function imageToBase64(filePath: string): string {
@@ -20,7 +24,8 @@ export function generateHtmlReport(report: VrtReport, outputPath: string): void 
 
   const rows = report.results
     .map((r) => {
-      const statusColor = r.status === 'pass' ? '#3fb950' : r.status === 'new' ? '#d29922' : '#f85149';
+      const statusColor =
+        r.status === 'pass' ? '#3fb950' : r.status === 'new' ? '#d29922' : '#f85149';
       const baseline = imageToBase64(r.baselinePath);
       const current = imageToBase64(r.currentPath);
       const diff = r.diffPath ? imageToBase64(r.diffPath) : '';

@@ -10,10 +10,7 @@ import { generateHtmlReport } from './reporters/html.reporter';
 
 const program = new Command();
 
-program
-  .name('vrt')
-  .description('Visual regression testing CLI')
-  .version('1.0.0');
+program.name('vrt').description('Visual regression testing CLI').version('1.0.0');
 
 program
   .command('compare')
