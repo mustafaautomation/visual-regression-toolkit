@@ -46,7 +46,7 @@ export class ScreenshotComparator {
       return {
         name,
         status: 'fail',
-        mismatchPixels: -1,
+        mismatchPixels: 0,
         mismatchPercentage: 100,
         threshold: this.config.threshold,
         baselinePath,
