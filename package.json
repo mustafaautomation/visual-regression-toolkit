@@ -4,6 +4,13 @@
   "description": "Visual regression testing toolkit — Playwright screenshots with pixel-level comparison",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
   "bin": {
     "vrt": "dist/cli.js"
   },
@@ -15,7 +22,8 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "format": "prettier --write \"**/*.ts\"",
     "format:check": "prettier --check \"**/*.ts\"",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
   },
   "author": "Quvantic <info@quvantic.com> (https://quvantic.com)",
   "license": "MIT",
@@ -23,7 +31,7 @@
     "type": "git",
     "url": "https://github.com/mustafaautomation/visual-regression-toolkit.git"
   },
-  "homepage": "https://github.com/mustafaautomation/visual-regression-toolkit#readme",
+  "homepage": "https://quvantic.com",
   "bugs": {
     "url": "https://github.com/mustafaautomation/visual-regression-toolkit/issues"
   },
@@ -51,6 +59,7 @@
     "node": ">=18.0.0"
   },
   "files": [
-    "dist"
+    "dist",
+    "package.json"
   ]
 }
